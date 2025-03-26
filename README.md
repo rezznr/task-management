@@ -67,6 +67,14 @@ A comprehensive React application with task management and e-commerce features, 
 
 5. Open your browser and navigate to `http://localhost:5173`
 
+### Authentication
+
+To use the application, you can:
+- Register a new account using the registration form or
+- Use the pre-configured admin account:
+  - **Email**: admin@admin.com
+  - **Password**: 123456
+
 ## Environment Configuration
 
 Create a `.env` file in the project root based on the `.env.example` template with your specific values.
