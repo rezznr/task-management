@@ -1,5 +1,5 @@
 // src/App.tsx
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import TaskPage from './pages/TaskPages';
 import ProductPage from './pages/ProductPage';
 // import ProductDetailPage from './pages/ProductDetailPage';
@@ -18,7 +18,7 @@ function App() {
   return (
     <AuthProvider>
       <CartProvider>
-        <BrowserRouter>
+        <HashRouter>
           <Navbar />
           <Routes>
             <Route path="/" element={<DashboardPage />} />
@@ -35,7 +35,7 @@ function App() {
             {/* Error pages */}
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
-        </BrowserRouter>
+        </HashRouter>
       </CartProvider>
     </AuthProvider>
   );
