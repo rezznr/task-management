@@ -1,54 +1,116 @@
-# React + TypeScript + Vite
+# Task Management & E-commerce Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A comprehensive React application with task management and e-commerce features, built with React, TypeScript, and Vite.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Task Management
+- Create, delete, and mark tasks as complete/incomplete
+- Separate views for completed and pending tasks
+- Task categorization and filtering
 
-## Expanding the ESLint configuration
+### E-commerce Functionality
+- Browse product listings with search and filter options
+- View detailed product information
+- Add/remove products from shopping cart
+- Cart management (update quantity, remove items)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Core Technical Features
+- **Responsive Design**: Works seamlessly across desktop, tablet, and mobile devices
+- **Authentication**: Secure login and registration system
+- **Error Handling**: User-friendly error messages and fallbacks
+- **Reusable Components**: Modular UI components for consistent user experience
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Technology Stack
+
+- **Frontend Framework**: React.js
+- **Language**: TypeScript
+- **Build Tool**: Vite
+- **Styling**: CSS/SASS/Styled Components
+- **Routing**: React Router
+- **State Management**: React Context API
+- **Authentication**: Firebase Authentication
+
+## Getting Started
+
+### Prerequisites
+- Node.js (v14.0.0 or later)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone [repository-url]
+   cd task-management
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+3. Set up environment variables:
+   ```bash
+   cp .env.example .env
+   ```
+   Edit the `.env` file with your configuration values (API endpoints, authentication keys, etc.)
+
+4. Start the development server:
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+
+5. Open your browser and navigate to `http://localhost:5173`
+
+## Environment Configuration
+
+Create a `.env` file in the project root based on the `.env.example` template with your specific values.
+
+## Build for Production
+
+To build the application for production:
+
+```bash
+npm run build
+# or
+yarn build
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+The build artifacts will be stored in the `dist/` directory.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Preview Production Build
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+To preview the production build locally:
+
+```bash
+npm run preview
+# or
+yarn preview
+```
+
+## Project Structure
+
+```
+task-management/
+├── public/               # Static assets
+├── src/
+│   ├── assets/           # Images, fonts, etc.
+│   ├── components/       # Reusable UI components
+│   ├── contexts/         # React contexts for state management
+│   ├── data/             # Dummy Data
+│   ├── pages/            # Page components
+│   ├── App.tsx           # Main app component
+│   ├── main.tsx          # Entry point
+│   └── vite-env.d.ts     # Vite environment declarations
+├── .env.example          # Example environment variables
+├── index.html            # HTML template
+├── package.json          # Dependencies and scripts
+├── tsconfig.json         # TypeScript configuration
+├── vite.config.ts        # Vite configuration
+└── README.md             # Project documentation
 ```
