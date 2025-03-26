@@ -327,6 +327,8 @@ const ProductPage = () => {
 
   const totalPages = Math.ceil(processedProducts.length / itemsPerPage);
 
+  console.log(process.env.REACT_APP_FIREBASE_PROJECT_ID || "No project ID");
+
   // Reset to first page when filters change
   useEffect(() => {
     setCurrentPage(1);

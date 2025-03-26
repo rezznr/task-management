@@ -9,9 +9,9 @@ import QuantityControl from "../components/QuantityControl";
 import { FaShoppingCart, FaArrowLeft, FaTrashAlt } from "react-icons/fa";
 
 const formatPrice = (price: number) => {
-  return new Intl.NumberFormat('id-ID', {
-    style: 'currency',
-    currency: 'IDR',
+  return new Intl.NumberFormat("id-ID", {
+    style: "currency",
+    currency: "IDR",
     minimumFractionDigits: 0,
     maximumFractionDigits: 0,
   }).format(price);
@@ -69,12 +69,12 @@ const CartItemRow = styled.div`
 const ItemImage = styled.div<{ imageUrl: string }>`
   width: 120px;
   height: 120px;
-  background-image: url(${props => props.imageUrl});
+  background-image: url(${(props) => props.imageUrl});
   background-size: cover;
   background-position: center;
   border-radius: 8px;
   transition: transform 0.2s;
-  
+
   &:hover {
     transform: scale(1.05);
   }
@@ -130,7 +130,7 @@ const ControlsContainer = styled.div`
   flex-direction: column;
   align-items: flex-end;
   gap: 0.75rem;
-  
+
   @media (max-width: 580px) {
     align-items: center;
   }
@@ -147,7 +147,7 @@ const RemoveButton = styled.button`
   padding: 0.5rem;
   cursor: pointer;
   transition: all 0.2s;
-  
+
   &:hover {
     background-color: #fff1f1;
     border-radius: 4px;
@@ -194,7 +194,7 @@ const CheckoutButton = styled(Button)`
   font-weight: 600;
   font-size: 1rem;
   transition: transform 0.1s;
-  
+
   &:hover {
     transform: translateY(-2px);
   }
@@ -214,7 +214,7 @@ const ContinueShoppingLink = styled(Link)`
   border-radius: 4px;
   text-align: center;
   transition: all 0.2s;
-  
+
   &:hover {
     background: #f0f5ff;
   }
@@ -265,13 +265,16 @@ const CartPage = () => {
     [removeFromCart]
   );
 
+  // const env = process.env.REACT_APP_FIREBASE_PROJECT_ID;
+  // console.log(env);
+
   const calculateTotal = useCallback((items: CartItem[]) => {
     return items.reduce((acc, item) => acc + item.price * item.quantity, 0);
   }, []);
 
   const subtotal = calculateTotal(cartItems);
-  const shipping = subtotal > 1000000 ? 0 : 15000; // Free shipping over 1,000,000 IDR
-  const tax = Math.round(subtotal * 0.11); // 11% tax in Indonesia
+  const shipping = subtotal > 1000000 ? 0 : 15000;
+  const tax = Math.round(subtotal * 0.11);
   const grandTotal = subtotal + tax + shipping;
 
   if (cartItems.length === 0) {

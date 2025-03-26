@@ -12,6 +12,7 @@ import CartPage from './pages/CartPage';
 import DashboardPage from './pages/DashboardPage';
 import { AuthProvider } from './contexts/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
+import NotFoundPage from './pages/NotFoundPage';
 
 function App() {
   return (
@@ -30,6 +31,9 @@ function App() {
               <Route path="/products/:id" element={<ProductDetailPage />} />
               <Route path="/cart" element={<CartPage />} />
             </Route>
+            
+            {/* Error pages */}
+            <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </BrowserRouter>
       </CartProvider>

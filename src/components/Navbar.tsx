@@ -191,28 +191,32 @@ const Navbar = () => {
       <Overlay isOpen={isOpen} onClick={() => setIsOpen(false)} />
 
       <NavLinks isOpen={isOpen}>
-        <StyledLink to="/tasks" active={location.pathname === "/tasks"}>
-          Tasks
-        </StyledLink>
-
-        <StyledLink to="/products" active={location.pathname === "/products"}>
-          Products
-        </StyledLink>
-
-        <CartIcon to="/cart">
-          <FaShoppingCart />
-          {cartItems.length > 0 && <CartBadge>{cartItems.length}</CartBadge>}
-        </CartIcon>
-
         {currentUser ? (
-          <ButtonContainer>
-            <StyledLink to="/profile" active={location.pathname === "/profile"}>
-              Profile
+          <>
+            <StyledLink to="/tasks" active={location.pathname === "/tasks"}>
+              Tasks
             </StyledLink>
-            <Button variant="secondary" onClick={handleLogout}>
-              Logout
-            </Button>
-          </ButtonContainer>
+
+            <StyledLink
+              to="/products"
+              active={location.pathname === "/products"}
+            >
+              Products
+            </StyledLink>
+
+            <CartIcon to="/cart">
+              <FaShoppingCart />
+              {cartItems.length > 0 && (
+                <CartBadge>{cartItems.length}</CartBadge>
+              )}
+            </CartIcon>
+
+            <ButtonContainer>
+              <Button variant="secondary" onClick={handleLogout}>
+                Logout
+              </Button>
+            </ButtonContainer>
+          </>
         ) : (
           <ButtonContainer>
             <Link to="/login">

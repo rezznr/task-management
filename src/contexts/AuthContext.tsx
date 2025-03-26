@@ -2,6 +2,7 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import { auth } from '../firebase';
 import { User, onAuthStateChanged, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut } from 'firebase/auth';
+// import { useNavigate } from 'react-router-dom';
 
 interface AuthContextType {
   currentUser: User | null;
@@ -16,6 +17,7 @@ const AuthContext = createContext<AuthContextType>({} as AuthContextType);
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [currentUser, setCurrentUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
+  // const navigate = useNavigate();
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -33,9 +35,10 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const signup = async (email: string, password: string) => {
     await createUserWithEmailAndPassword(auth, email, password);
   };
-
+  
   const logout = async () => {
     await signOut(auth);
+    // navigate('/login');
   };
 
   return (
